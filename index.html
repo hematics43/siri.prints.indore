@@ -67,44 +67,80 @@
       font-size: 26px;
       margin-bottom: 15px;
     }
+
+    /* Offers */
     .offers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
       padding: 30px 15px;
-    }
-    .card {
       background: #fff;
-      padding: 20px;
+    }
+    .offers h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff5252;
+      font-size: 22px;
+    }
+    .offers-scroll {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 10px;
+    }
+    .offers-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .offers-scroll::-webkit-scrollbar-thumb {
+      background: #ff5252;
+      border-radius: 4px;
+    }
+    .offer-card {
+      background: #fff;
+      min-width: 230px;
+      flex-shrink: 0;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 15px;
       text-align: center;
     }
-    .card h3 {
-      margin-top: 0;
+    .offer-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .offer-card h3 {
+      margin: 5px 0;
       color: #ff5252;
+      font-size: 18px;
     }
     .price {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
-      margin: 10px 0;
+      margin: 8px 0;
       color: #111;
+    }
+    .offer-card p {
+      font-size: 14px;
+      color: #555;
     }
     .btn {
       display: inline-block;
       margin-top: 10px;
-      padding: 10px 16px;
+      padding: 8px 14px;
       border-radius: 8px;
       background: #ff5252;
       color: #fff;
       font-weight: 600;
       text-decoration: none;
+      font-size: 13px;
       transition: 0.2s;
-      font-size: 14px;
     }
     .btn:hover {
       background: #e63e3e;
     }
+
+    /* Gallery */
     .gallery {
       padding: 30px 15px;
       background: #fff;
@@ -139,6 +175,8 @@
     .gallery-scroll img:hover {
       transform: scale(1.05);
     }
+
+    /* Contact */
     .contact {
       padding: 30px 15px;
       text-align: center;
@@ -156,6 +194,7 @@
       color: #ff5252;
       text-decoration: none;
     }
+
     footer {
       background: #111;
       color: #ccc;
@@ -178,15 +217,43 @@
         font-size: 13px;
       }
       .price {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
+    /* Lightbox popup */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+#lightbox:target {
+  display: flex;
+}
+#lightbox-close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
-      <img src="images/logo.png" alt="SIRI PRINTS Logo" class="logo-img">
+      <img src="men.jpeg" alt="SIRI PRINTS Logo" class="logo-img">
       <div class="brand-title">
         <h1>SIRI PRINTS</h1>
         <p>Custom Mug Printing • Ready in 45 minutes</p>
@@ -205,39 +272,44 @@
     <p>High-quality printing, vibrant colors, and quick delivery – all in Indore!</p>
   </section>
 
-  <section id="offers" class="offers">
-    <div class="card">
+ <section id="offers" class="offers">
+  <h2>🔥 Special Offers 🔥</h2>
+  <div class="offers-scroll">
+    <div class="offer-card">
+      <img src="men.jpeg" alt="Single Mug" class="popup-img">
       <h3>Single Mug</h3>
       <p class="price">₹149/-</p>
       <p>Perfect for personal use or gifting.</p>
       <a href="https://wa.me/919685165987?text=I%20want%20to%20order%201%20Mug" class="btn">Order Now</a>
     </div>
-    <div class="card">
+    <div class="offer-card">
+      <img src="images/offers/pair-mug.jpg" alt="Pair of 2 Mugs" class="popup-img">
       <h3>Pair of 2 Mugs</h3>
       <p class="price">₹220/-</p>
       <p>Best value for couples and gifting.</p>
       <a href="https://wa.me/919685165987?text=I%20want%20to%20order%20Pair%20of%20Mugs" class="btn">Order Now</a>
     </div>
-    <div class="card">
+    <div class="offer-card">
+      <img src="images/offers/magic-mug.jpg" alt="Magic Mug" class="popup-img">
       <h3>Magic Mug</h3>
       <p class="price">₹210/-</p>
       <p>Heat-sensitive color changing mug.</p>
       <a href="https://wa.me/919685165987?text=I%20want%20to%20order%20Magic%20Mug" class="btn">Order Now</a>
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="gallery" class="gallery">
-    <h2>📸 Our Mug Gallery</h2>
-    <div class="gallery-scroll">
-      <img src="images/gallery/mug1.jpg" alt="Custom Mug 1">
-      <img src="images/gallery/mug2.jpg" alt="Custom Mug 2">
-      <img src="images/gallery/mug3.jpg" alt="Custom Mug 3">
-      <img src="images/gallery/mug4.jpg" alt="Custom Mug 4">
-      <img src="images/gallery/mug5.jpg" alt="Custom Mug 5">
-      <img src="images/gallery/mug6.jpg" alt="Custom Mug 6">
-    </div>
-  </section>
-
+  <h2>📸 Our Mug Gallery</h2>
+  <div class="gallery-scroll">
+    <img src="men.jpeg" alt="Custom Mug 1" class="popup-img">
+    <img src="images/gallery/mug2.jpg" alt="Custom Mug 2" class="popup-img">
+    <img src="images/gallery/mug3.jpg" alt="Custom Mug 3" class="popup-img">
+    <img src="images/gallery/mug4.jpg" alt="Custom Mug 4" class="popup-img">
+    <img src="images/gallery/mug5.jpg" alt="Custom Mug 5" class="popup-img">
+    <img src="images/gallery/mug6.jpg" alt="Custom Mug 6" class="popup-img">
+  </div>
+</section>
   <section id="contact" class="contact">
     <h2>📍 Visit Us / Contact</h2>
     <p>Moti Tabela, Near Collector Office, Indore</p>
@@ -252,5 +324,34 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
+  <div id="lightbox">
+  <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="Preview">
+</div>
+
+<script>
+  const popupImages = document.querySelectorAll('.popup-img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  popupImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  lightboxClose.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // Close when clicking outside the image
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
