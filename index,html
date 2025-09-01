@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIRI PRINTS – Mug Printing in Indore | Ready in 45 Minutes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+    }
+    header {
+      background: #fff;
+      border-bottom: 2px solid #eee;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+    .brand-title h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ff5252;
+    }
+    .brand-title p {
+      margin: 0;
+      font-size: 12px;
+      color: #666;
+    }
+    nav {
+      margin-top: 8px;
+    }
+    nav a {
+      margin-left: 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    nav a:hover {
+      color: #ff5252;
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #ffce00, #ff5252);
+      color: #fff;
+    }
+    .hero h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px 15px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #ff5252;
+    }
+    .price {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 10px 0;
+      color: #111;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: #ff5252;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background: #e63e3e;
+    }
+    .gallery {
+      padding: 30px 15px;
+      background: #fff;
+    }
+    .gallery h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff5252;
+      font-size: 22px;
+    }
+    .gallery-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 10px;
+    }
+    .gallery-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .gallery-scroll::-webkit-scrollbar-thumb {
+      background: #ff5252;
+      border-radius: 4px;
+    }
+    .gallery-scroll img {
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .gallery-scroll img:hover {
+      transform: scale(1.05);
+    }
+    .contact {
+      padding: 30px 15px;
+      text-align: center;
+    }
+    .contact h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #ff5252;
+    }
+    .contact p {
+      margin: 6px 0;
+      font-size: 14px;
+    }
+    .contact a {
+      color: #ff5252;
+      text-decoration: none;
+    }
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 22px;
+      }
+      .brand-title h1 {
+        font-size: 16px;
+      }
+      nav a {
+        margin-left: 8px;
+        font-size: 13px;
+      }
+      .price {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="images/logo.png" alt="SIRI PRINTS Logo" class="logo-img">
+      <div class="brand-title">
+        <h1>SIRI PRINTS</h1>
+        <p>Custom Mug Printing • Ready in 45 minutes</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#offers">Offers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.instagram.com/siri.prints/" target="_blank">Instagram</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>🎉 Special Mug Printing Offers 🎉</h2>
+    <p>High-quality printing, vibrant colors, and quick delivery – all in Indore!</p>
+  </section>
+
+  <section id="offers" class="offers">
+    <div class="card">
+      <h3>Single Mug</h3>
+      <p class="price">₹149/-</p>
+      <p>Perfect for personal use or gifting.</p>
+      <a href="https://wa.me/919685165987?text=I%20want%20to%20order%201%20Mug" class="btn">Order Now</a>
+    </div>
+    <div class="card">
+      <h3>Pair of 2 Mugs</h3>
+      <p class="price">₹220/-</p>
+      <p>Best value for couples and gifting.</p>
+      <a href="https://wa.me/919685165987?text=I%20want%20to%20order%20Pair%20of%20Mugs" class="btn">Order Now</a>
+    </div>
+    <div class="card">
+      <h3>Magic Mug</h3>
+      <p class="price">₹210/-</p>
+      <p>Heat-sensitive color changing mug.</p>
+      <a href="https://wa.me/919685165987?text=I%20want%20to%20order%20Magic%20Mug" class="btn">Order Now</a>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <h2>📸 Our Mug Gallery</h2>
+    <div class="gallery-scroll">
+      <img src="images/gallery/mug1.jpg" alt="Custom Mug 1">
+      <img src="images/gallery/mug2.jpg" alt="Custom Mug 2">
+      <img src="images/gallery/mug3.jpg" alt="Custom Mug 3">
+      <img src="images/gallery/mug4.jpg" alt="Custom Mug 4">
+      <img src="images/gallery/mug5.jpg" alt="Custom Mug 5">
+      <img src="images/gallery/mug6.jpg" alt="Custom Mug 6">
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>📍 Visit Us / Contact</h2>
+    <p>Moti Tabela, Near Collector Office, Indore</p>
+    <p>📞 <a href="tel:+919685165987">+91 9685165987</a></p>
+    <p>📱 <a href="https://www.instagram.com/siri.prints/" target="_blank">@siri.prints</a></p>
+  </section>
+
+  <footer>
+    <p>© <span id="yr"></span> SIRI PRINTS • All rights reserved</p>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
