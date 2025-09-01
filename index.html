@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SIRI PRINTS – Mug Printing in Indore | Ready in 45 Minutes</title>
+  <title>SIRI PRINTS 🔥 Mug Printing in Indore | Ready in 45 Minutes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -177,23 +177,49 @@
     }
 
     /* Contact */
-    .contact {
-      padding: 30px 15px;
-      text-align: center;
-    }
-    .contact h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: #ff5252;
-    }
-    .contact p {
-      margin: 6px 0;
-      font-size: 14px;
-    }
-    .contact a {
-      color: #ff5252;
-      text-decoration: none;
-    }
+.contact {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.contact-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ff5252;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.contact-btn {
+  background: #ff5252;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.contact-btn:hover {
+  background: #e63e3e;
+}
+
+@media (max-width: 600px) {
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-btn {
+    width: 80%;
+    text-align: center;
+  }
+}
 
     footer {
       background: #111;
@@ -252,20 +278,21 @@
 </head>
 <body>
   <header>
-    <div class="brand">
-      <img src="men.jpeg" alt="SIRI PRINTS Logo" class="logo-img">
-      <div class="brand-title">
-        <h1>SIRI PRINTS</h1>
-        <p>Custom Mug Printing • Ready in 45 minutes</p>
-      </div>
+  <div class="brand sticky-brand">
+    <img src="men.jpeg" alt="SIRI PRINTS Logo" class="logo-img">
+    <div class="brand-title">
+      <h1>SIRI PRINTS</h1>
+      <p>Custom Mug Printing • Ready in 45 minutes</p>
     </div>
-    <nav>
-      <a href="#offers">Offers</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-      <a href="https://www.instagram.com/siri.prints/" target="_blank">Instagram</a>
-    </nav>
-  </header>
+  </div>
+  <nav class="nav-bar">
+    <a href="#offers">Offers</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.instagram.com/siri.prints/" target="_blank">Instagram</a>
+  </nav>
+</header>
+
 
   <section class="hero">
     <h2>🎉 Special Mug Printing Offers 🎉</h2>
@@ -302,7 +329,7 @@
   <section id="gallery" class="gallery">
   <h2>📸 Our Mug Gallery</h2>
   <div class="gallery-scroll">
-    <img src="men.jpeg" alt="Custom Mug 1" class="popup-img">
+    <img src="men" alt="Custom Mug 1" class="popup-img">
     <img src="images/gallery/mug2.jpg" alt="Custom Mug 2" class="popup-img">
     <img src="images/gallery/mug3.jpg" alt="Custom Mug 3" class="popup-img">
     <img src="images/gallery/mug4.jpg" alt="Custom Mug 4" class="popup-img">
@@ -311,11 +338,17 @@
   </div>
 </section>
   <section id="contact" class="contact">
-    <h2>📍 Visit Us / Contact</h2>
-    <p>Moti Tabela, Near Collector Office, Indore</p>
-    <p>📞 <a href="tel:+919685165987">+91 9685165987</a></p>
-    <p>📱 <a href="https://www.instagram.com/siri.prints/" target="_blank">@siri.prints</a></p>
-  </section>
+  <h2 class="contact-title">📍 Visit Us / Contact</h2>
+  <div class="contact-buttons">
+    <a href="tel:+919685165987" class="contact-btn">📞 Call</a>
+    <a href="https://wa.me/919685165987?text=Hello%20SIRI%20PRINTS" target="_blank" class="contact-btn">💬 WhatsApp</a>
+    <a href="https://www.instagram.com/siri.prints/" target="_blank" class="contact-btn">📱 Instagram</a>
+    <a href="https://maps.google.com/?q=Moti+Tabela,+Near+Collector+Office,+Indore" target="_blank" class="contact-btn">📍 Location</a>
+  </div>
+</section>
+
+
+
 
   <footer>
     <p>© <span id="yr"></span> SIRI PRINTS • All rights reserved</p>
