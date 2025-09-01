@@ -42,7 +42,7 @@
     .brand-title p {
       margin: 0;
       font-size: 12px;
-      color: #666;
+      color: #06032d;
     }
     nav {
       margin-top: 8px;
@@ -50,17 +50,17 @@
     nav a {
       margin-left: 12px;
       text-decoration: none;
-      color: #333;
+      color: #f51054;
       font-weight: 600;
       font-size: 14px;
     }
     nav a:hover {
-      color: #ff5252;
+      color: #fb5757;
     }
     .hero {
       text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(135deg, #ffce00, #ff5252);
+      padding: auto;
+      background: linear-gradient(135deg);
       color: #fff;
     }
     .hero h2 {
@@ -179,41 +179,47 @@
     /* Contact */
 .contact {
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px 20px;
   background: #f9f9f9;
 }
 
 .contact-title {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
   color: #ff5252;
 }
 
-/* Keep buttons in a row */
-.contact-buttons {
+/* Single unified bar */
+.contact-bar {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  gap: 12px;
-  overflow-x: auto;   /* scroll if screen is too small */
-  padding-bottom: 10px;
+  align-items: stretch;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  background: #ff5252;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact-btn {
-  background: #ff5252;
+  flex: 1; /* equal width buttons */
+  padding: 12px 0;
   color: #fff;
-  padding: 10px 18px;
-  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  white-space: nowrap;   /* prevents text wrapping */
   transition: background 0.3s;
-  flex-shrink: 0;        /* keeps buttons from squishing */
+  border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+.contact-btn:last-child {
+  border-right: none; /* remove last divider */
 }
 
 .contact-btn:hover {
   background: #e63e3e;
 }
+
 
 
 @media (max-width: 600px) {
@@ -280,6 +286,37 @@
   cursor: pointer;
   font-weight: bold;
 }
+hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff5252; /* highlight color */
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: #09052f;
+  margin-bottom: 10px;
+}
+
+.hero-btn {
+  background: #e64b4b;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 1s;
+}
+
+.hero-btn:hover {
+  background: #e63e3e;
+}
   </style>
 </head>
 <body>
@@ -288,7 +325,7 @@
     <img src="men.jpeg" alt="SIRI PRINTS Logo" class="logo-img">
     <div class="brand-title">
       <h1>SIRI PRINTS</h1>
-      <p>Custom Mug Printing • Ready in 45 minutes</p>
+      <p>Custom Mug Printing • Indore • Ready in 45 Minutes</p>
     </div>
   </div>
   <nav class="nav-bar">
@@ -298,12 +335,51 @@
     <a href="https://www.instagram.com/siri.prints/" target="_blank">Instagram</a>
   </nav>
 </header>
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <h1 id="typing"></h1>
+    <p>Custom Mug Printing • Indore • Ready in 45 Minutes</p>
+     </div>
+</section>
+<script>
+const textArray = [
+  "☕ Custom Mug Printing",
+  "🎁 Perfect for Gifting",
+  "⚡ Ready in 45 Minutes",
+  "✨ High Quality & Long Lasting"
+];
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
+let speed = 120;
+
+function type() {
+  let currentText = textArray[index];
+  document.getElementById("typing").textContent =
+    isDeleting
+      ? currentText.substring(0, charIndex--)
+      : currentText.substring(0, charIndex++);
+
+  if (!isDeleting && charIndex === currentText.length) {
+    isDeleting = true;
+    speed = 60;
+    setTimeout(type, 1200);
+    return;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    index = (index + 1) % textArray.length;
+    speed = 120;
+  }
+  setTimeout(type, speed);
+}
+type();
+</script>
 
 
-  <section class="hero">
-    <h2>🎉 Special Mug Printing Offers 🎉</h2>
-    <p>High-quality printing, vibrant colors, and quick delivery – all in Indore!</p>
-  </section>
+
+
+
+ 
 
  <section id="offers" class="offers">
   <h2>🔥 Special Offers 🔥</h2>
@@ -344,8 +420,8 @@
   </div>
 </section>
   <section id="contact" class="contact">
-  <h2 class="contact-title">📍 Visit Us / Contact</h2>
-  <div class="contact-buttons">
+
+  <div class="contact-bar">
     <a href="tel:+919685165987" class="contact-btn">📞 Call</a>
     <a href="https://wa.me/919685165987?text=Hello%20SIRI%20PRINTS" target="_blank" class="contact-btn">💬 WhatsApp</a>
     <a href="https://www.instagram.com/siri.prints/" target="_blank" class="contact-btn">📱 Instagram</a>
