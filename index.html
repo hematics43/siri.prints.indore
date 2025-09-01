@@ -189,11 +189,14 @@
   color: #ff5252;
 }
 
+/* Keep buttons in a row */
 .contact-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: row;
   justify-content: center;
+  gap: 12px;
+  overflow-x: auto;   /* scroll if screen is too small */
+  padding-bottom: 10px;
 }
 
 .contact-btn {
@@ -203,12 +206,15 @@
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  white-space: nowrap;   /* prevents text wrapping */
   transition: background 0.3s;
+  flex-shrink: 0;        /* keeps buttons from squishing */
 }
 
 .contact-btn:hover {
   background: #e63e3e;
 }
+
 
 @media (max-width: 600px) {
   .contact-buttons {
@@ -346,9 +352,6 @@
     <a href="https://maps.google.com/?q=Moti+Tabela,+Near+Collector+Office,+Indore" target="_blank" class="contact-btn">📍 Location</a>
   </div>
 </section>
-
-
-
 
   <footer>
     <p>© <span id="yr"></span> SIRI PRINTS • All rights reserved</p>
