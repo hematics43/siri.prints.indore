@@ -42,7 +42,7 @@
     .brand-title p {
       margin: 0;
       font-size: 12px;
-      color: #06032d;
+      color: #e01010;
     }
     nav {
       margin-top: 8px;
@@ -286,37 +286,20 @@
   cursor: pointer;
   font-weight: bold;
 }
-hero {
+.quotes-section {
   text-align: center;
-  padding: 80px 20px;
+  padding: auto;
 }
 
-.hero-content h1 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #ff5252; /* highlight color */
-  margin-bottom: 10px;
+.quote-text {
+  font-size: clamp(18px, 4vw, 26px);
+  font-style: italic;
+  color: #b31414;
+  opacity: 100;
+  transition: opacity 1s ease-in-out;
+  min-height: 20px; /* keeps height stable */
 }
 
-.hero-content p {
-  font-size: 18px;
-  color: #09052f;
-  margin-bottom: 10px;
-}
-
-.hero-btn {
-  background: #e64b4b;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 1s;
-}
-
-.hero-btn:hover {
-  background: #e63e3e;
-}
   </style>
 </head>
 <body>
@@ -325,7 +308,7 @@ hero {
     <img src="men.jpeg" alt="SIRI PRINTS Logo" class="logo-img">
     <div class="brand-title">
       <h1>SIRI PRINTS</h1>
-      <p>Custom Mug Printing • Indore • Ready in 45 Minutes</p>
+      <p>Custom Mug Printing • Ready in 45 minutes</p>
     </div>
   </div>
   <nav class="nav-bar">
@@ -335,51 +318,10 @@ hero {
     <a href="https://www.instagram.com/siri.prints/" target="_blank">Instagram</a>
   </nav>
 </header>
-<section id="hero" class="hero">
-  <div class="hero-content">
-    <h1 id="typing"></h1>
-    <p>Custom Mug Printing • Indore • Ready in 45 Minutes</p>
-     </div>
+<section class="quotes-section">
+  <p id="quoteBox" class="quote-text"></p>
 </section>
-<script>
-const textArray = [
-  "☕ Custom Mug Printing",
-  "🎁 Perfect for Gifting",
-  "⚡ Ready in 45 Minutes",
-  "✨ High Quality & Long Lasting"
-];
-let index = 0;
-let charIndex = 0;
-let isDeleting = false;
-let speed = 120;
 
-function type() {
-  let currentText = textArray[index];
-  document.getElementById("typing").textContent =
-    isDeleting
-      ? currentText.substring(0, charIndex--)
-      : currentText.substring(0, charIndex++);
-
-  if (!isDeleting && charIndex === currentText.length) {
-    isDeleting = true;
-    speed = 60;
-    setTimeout(type, 1200);
-    return;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    index = (index + 1) % textArray.length;
-    speed = 120;
-  }
-  setTimeout(type, speed);
-}
-type();
-</script>
-
-
-
-
-
- 
 
  <section id="offers" class="offers">
   <h2>🔥 Special Offers 🔥</h2>
@@ -465,5 +407,39 @@ type();
     }
   });
 </script>
+<script>
+const quotes = [
+  "“Every sip tastes better in your own custom mug.”",
+  "“Gift smiles with every cup ☕✨.”",
+  "“Printing happiness, one mug at a time.”",
+  "“Personalized mugs • Perfect gifts 🎁.”",
+  "“Turn your memories into masterpieces.”",
+  "“Your coffee deserves a mug as unique as you.”",
+  "“Because every sip tells a story.”",
+  "“Make mornings magical with custom mugs.”",
+  "“From heart to mug — perfect gifting starts here.”",
+  "“A cup of coffee, a dash of love, a printed memory.”",
+  "“Celebrate every occasion with a personalized mug.”",
+  "“Drink happiness, designed just for you.”",
+  "“Not just mugs — moments you can hold.”",
+  "“Custom mugs: the gift that keeps on giving.”",
+  "“Every design, a memory; every sip, a smile.”"
+];
+
+let qIndex = 0;
+const quoteBox = document.getElementById("quoteBox");
+
+function showQuote() {
+  quoteBox.style.opacity = 0;
+  setTimeout(() => {
+    quoteBox.textContent = quotes[qIndex];
+    quoteBox.style.opacity = 1;
+    qIndex = (qIndex + 1) % quotes.length;
+  }, 1000); // wait fade-out
+}
+showQuote();
+setInterval(showQuote, 5000); // change every 4 sec
+</script>
+
 </body>
 </html>
