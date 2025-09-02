@@ -218,14 +218,30 @@
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-    footer {
-      background: #111;
-      color: #ccc;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-      font-size: 13px;
-    }
+   footer {
+  text-align: center;
+  padding: 1px;
+  background: #13032f;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+footer a.glow-link {
+  color: #daf50e;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  animation: glow 1.2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #d2500a, 0 0 10px #ff6b6b, 0 0 15px #ffcc70;
+  }
+  to {
+    text-shadow: 0 0 15px #ff6b6b, 0 0 25px #ffcc70, 0 0 35px #ff6b6b;
+  }
+}
 
     /* Mobile optimizations */
     @media (max-width: 600px) {
@@ -285,6 +301,94 @@
   min-height: 20px; /* keeps height stable */
 }
 
+.magic-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ffcc70);
+  color: #fff !important;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(255, 100, 100, 0.6);
+  animation: pulse 2s infinite;
+}
+
+.magic-btn:hover {
+  background: linear-gradient(45deg, #ff4757, #ffc048);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 100, 100, 0.9);
+}
+
+/* Glow animation */
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(255, 100, 100, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(255, 180, 100, 0.9); }
+  100% { box-shadow: 0 0 10px rgba(255, 100, 100, 0.6); }
+}
+.offers-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 15px;
+  scroll-snap-type: x mandatory;
+}
+
+.offer-card {
+  flex: 0 0 auto;
+  width: 220px;
+  border-radius: 10px;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.offer-card img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.offer-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Popup modal */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.85);
+}
+
+.popup-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #ff5252;
+}
+
   </style>
 </head>
 <body>
@@ -298,6 +402,7 @@
   </div>
   <nav class="nav-bar">
     <a href="#offers">Offers</a>
+    <a href="#magic-mugs" class="magic-btn">✨ Magic Mugs</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
     <a href="https://www.instagram.com/siri.prints/" target="_blank">Instagram</a>
@@ -342,6 +447,55 @@
   </div>
 </section>
 
+<script>
+// Get popup elements
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popup-img");
+const closeBtn = document.querySelector(".close");
+
+// When clicking an image → show popup
+document.querySelectorAll(".popup-img").forEach(img => {
+  img.addEventListener("click", () => {
+    popup.style.display = "block";
+    popupImg.src = img.src;
+  });
+});
+
+// Close when clicking X
+closeBtn.onclick = () => {
+  popup.style.display = "none";
+};
+
+// Close when clicking outside image
+popup.onclick = (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+};
+</script>
+
+
+<section id="magic-mugs" class="offers">
+  <h2>✨ Magic Mugs Special ✨</h2>
+  <div class="offers-scroll">
+    <div class="offer-card">
+      <img src="men.jpeg" alt="Magic Mug Printing" class="popup-img">
+      <h3>Magic Mug</h3>
+      <p>Watch your design appear when hot liquid is poured! 🔥☕</p>
+      <p class="price">Only ₹210/-</p>
+    </div>
+    <div class="offer-card">
+      <img src="men.jpeg" alt="Custom Magic Mug" class="popup-img">
+      <h3>Custom Design</h3>
+      <p>Perfect for gifting and surprises 🎁</p>
+      <p class="price">Only ₹210/-</p>
+    </div>
+  </div>
+</section>
+<div id="popup" class="popup">
+  <span class="close">&times;</span>
+  <img class="popup-content" id="popup-img">
+</div>
   <section id="gallery" class="gallery">
   <h2>📸 Our Mug Gallery</h2>
   <div class="gallery-scroll">
@@ -364,8 +518,10 @@
 </section>
 
   <footer>
-    <p>© <span id="yr"></span> SIRI PRINTS • All rights reserved</p>
-  </footer>
+  <p>
+    Developer <a href="https://www.instagram.com/beecodeworld/" target="_blank" class="glow-link">🐝BEE CODE WORLD</a> 
+  </p>
+</footer>
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
@@ -431,6 +587,33 @@ function showQuote() {
 }
 showQuote();
 setInterval(showQuote, 5000); // change every 4 sec
+</script>
+
+<script>
+// Get popup elements
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popup-img");
+const closeBtn = document.querySelector(".close");
+
+// When clicking an image → show popup
+document.querySelectorAll(".popup-img").forEach(img => {
+  img.addEventListener("click", () => {
+    popup.style.display = "block";
+    popupImg.src = img.src;
+  });
+});
+
+// Close when clicking X
+closeBtn.onclick = () => {
+  popup.style.display = "none";
+};
+
+// Close when clicking outside image
+popup.onclick = (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+};
 </script>
 
 </body>
